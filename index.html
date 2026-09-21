@@ -190,38 +190,26 @@
             backgroundMusic.volume = 0.3; // Volumen bajo (30%)
             
             // Intentar reproducir música inmediatamente
-            const playMusic = () => {
-                backgroundMusic.play().catch(e => console.log('Error al reproducir música:', e));
-            };
-            
-            playMusic();
-            
-            // Fallback: si el navegador bloquea autoplay, reproducir en el primer clic
-            let musicStarted = false;
-            document.body.addEventListener('click', function() {
-                if (!musicStarted) {
-                    playMusic();
-                    musicStarted = true;
-                }
-            }, { once: true });
+            backgroundMusic.play().catch(e => console.log('Autoplay bloqueado:', e));
             
             document.getElementById('loginForm').addEventListener('submit', function(e) {
                 e.preventDefault();
                 const username = document.getElementById('username').value;
                 const password = document.getElementById('password').value;
                 
+                console.log('Intento de login:', username, password); // Para debug
+                
                 // Validación simple (en producción usar backend real)
                 if (username === 'Danamai' && password === '140726') {
+                    console.log('Login exitoso');
                     document.querySelector('.login-container').classList.add('hidden');
                     document.getElementById('mainContent').classList.remove('hidden');
                     document.getElementById('message').textContent = '';
                     
                     // Asegurar que la música esté reproduciéndose
-                    if (!musicStarted) {
-                        playMusic();
-                        musicStarted = true;
-                    }
+                    backgroundMusic.play().catch(e => console.log('Error al reproducir música:', e));
                 } else {
+                    console.log('Login fallido');
                     document.getElementById('message').innerHTML = '<span class="flower">🌸</span> ¡Ups! Las flores no reconocen este usuario <span class="flower">🌸</span>';
                     document.getElementById('message').style.color = '#f57f17';
                 }
