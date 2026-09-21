@@ -161,9 +161,46 @@
             </div>
             <div class="goodbye-message">
                 <h1>Te Amo Mucho mi Amor ❤️</h1>
-                <p>Que Tengas un Bonito Día <span class="flower"></span>🌸</span></p>
+                <p>Que Tengas un Bonito Día <span class="flower">🌸</span></p>
                 <p>Me Encantas <span class="flower">🌻</span></p>
             </div>
+            <div class="photos-gallery">
+                <div class="photo-card">
+                    <img src="photos/photo1.jpg" alt="Foto 1" class="photo-image">
+                    <span class="flower">🌸</span>
+                </div>
+                <div class="photo-card">
+                    <img src="photos/photo2.jpg" alt="Foto 2" class="photo-image">
+                    <span class="flower">🌺</span>
+                </div>
+                <div class="photo-card">
+                    <img src="photos/photo3.jpg" alt="Foto 3" class="photo-image">
+                    <span class="flower">🌻</span>
+                </div>
+                <div class="photo-card">
+                    <img src="photos/photo4.jpg" alt="Foto 4" class="photo-image">
+                    <span class="flower">🌷</span>
+                </div>
+                <div class="photo-card">
+                    <img src="photos/photo5.jpg" alt="Foto 5" class="photo-image">
+                    <span class="flower">🌹</span>
+                </div>
+                <div class="photo-card">
+                    <img src="photos/photo6.jpg" alt="Foto 6" class="photo-image">
+                    <span class="flower">💐</span>
+                </div>
+                <div class="photo-card">
+                    <img src="photos/photo7.jpg" alt="Foto 7" class="photo-image">
+                    <span class="flower">🌼</span>
+                </div>
+                <div class="photo-card">
+                    <img src="photos/photo8.jpg" alt="Foto 8" class="photo-image">
+                    <span class="flower">🌺</span>
+                </div>
+            </div>
+            <button id="homeButton" class="home-button">
+                <span class="flower">🏠</span> Volver al Jardín <span class="flower">🏠</span>
+            </button>
             <div class="flowers-decoration">
                 <span class="flower">🌺</span>
                 <span class="flower">🌼</span>
@@ -219,10 +256,6 @@
                 document.getElementById('mainContent').classList.add('hidden');
                 document.getElementById('goodbyeScreen').classList.remove('hidden');
                 
-                // Pausar música de fondo
-                backgroundMusic.pause();
-                backgroundMusic.currentTime = 0;
-                
                 // Resetear ventanas
                 document.querySelectorAll('.window').forEach(window => {
                     window.classList.add('hidden');
@@ -241,10 +274,6 @@
                 document.getElementById('mainContent').classList.add('hidden');
                 document.getElementById('goodbyeScreen').classList.remove('hidden');
                 
-                // Pausar música de fondo
-                backgroundMusic.pause();
-                backgroundMusic.currentTime = 0;
-                
                 // Resetear ventanas
                 document.querySelectorAll('.window').forEach(window => {
                     window.classList.add('hidden');
@@ -252,6 +281,16 @@
                 });
                 document.getElementById('window1').classList.remove('hidden');
                 document.getElementById('window1').classList.add('active');
+            });
+
+            // Botón de casita para volver al login
+            document.getElementById('homeButton').addEventListener('click', function() {
+                document.getElementById('goodbyeScreen').classList.add('hidden');
+                document.querySelector('.login-container').classList.remove('hidden');
+                
+                // Pausar música de fondo al volver al login
+                backgroundMusic.pause();
+                backgroundMusic.currentTime = 0;
             });
 
             // Controlar música con videos
