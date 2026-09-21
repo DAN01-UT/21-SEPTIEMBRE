@@ -256,6 +256,24 @@ button:hover {
     padding: 10px;
 }
 
+.help-note {
+    background: rgba(255, 249, 196, 0.8);
+    border: 2px dashed #ffca28;
+    border-radius: 15px;
+    padding: 15px;
+    margin: 15px 0;
+    text-align: center;
+    font-size: 16px;
+    color: #f57f17;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.help-note span {
+    font-size: 20px;
+    margin: 0 5px;
+}
+
 .navigation-arrows {
     display: flex;
     justify-content: space-between;
@@ -447,6 +465,11 @@ p .flower,
 @media (max-width: 768px) {
     body {
         padding: 10px;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     
     body::before, body::after {
@@ -454,10 +477,19 @@ p .flower,
         letter-spacing: 20px;
     }
     
+    .login-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 0;
+    }
+    
     .login-box {
         padding: 30px 20px;
-        margin: 0 10px;
+        margin: 0 auto;
         max-width: 100%;
+        width: 100%;
     }
     
     .login-box::before {
@@ -491,7 +523,9 @@ p .flower,
     
     #mainContent {
         padding: 30px 20px;
-        margin: 0 10px;
+        margin: 0 auto;
+        max-width: 100%;
+        width: 100%;
     }
     
     #mainContent::before {
@@ -522,27 +556,73 @@ p .flower,
     .navigation-arrow {
         max-width: 100%;
         padding: 12px 20px;
+        min-height: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     
     .navigation-arrow span {
-        font-size: 20px;
+        font-size: 24px;
+        margin-bottom: 5px;
     }
     
     .navigation-arrow p {
-        font-size: 12px;
+        font-size: 14px;
     }
     
     .window-content p {
         font-size: 16px;
+        line-height: 1.6;
     }
     
     .video-container video {
         border-radius: 10px;
         border-width: 2px;
     }
+    
+    .goodbye-container {
+        padding: 40px 20px;
+        margin: 20px auto;
+        max-width: 100%;
+    }
+    
+    .goodbye-message {
+        padding: 30px 20px;
+    }
+    
+    .goodbye-message h1 {
+        font-size: 28px;
+    }
+    
+    .goodbye-message p {
+        font-size: 18px;
+    }
+    
+    .flowers-decoration {
+        gap: 10px;
+    }
+    
+    .flower {
+        font-size: 30px;
+    }
+    
+    .help-note {
+        font-size: 14px;
+        padding: 12px;
+    }
+    
+    .help-note span {
+        font-size: 18px;
+    }
 }
 
 @media (max-width: 480px) {
+    body {
+        padding: 5px;
+    }
+    
     body::before, body::after {
         font-size: 14px;
         letter-spacing: 15px;
@@ -550,7 +630,7 @@ p .flower,
     
     .login-box {
         padding: 25px 15px;
-        margin: 0 5px;
+        margin: 0 auto;
     }
     
     .login-box::before {
@@ -574,7 +654,7 @@ p .flower,
     
     #mainContent {
         padding: 25px 15px;
-        margin: 0 5px;
+        margin: 0 auto;
     }
     
     #mainContent::before {
@@ -589,6 +669,66 @@ p .flower,
     .video-container video {
         border-radius: 8px;
         border-width: 2px;
-        max-height: 60vh;
+        max-height: 50vh;
+    }
+    
+    .window-title {
+        font-size: 18px;
+        padding: 12px;
+    }
+    
+    .window-content {
+        padding: 20px 15px;
+    }
+    
+    .window-content p {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+    
+    .navigation-arrow {
+        padding: 10px 15px;
+        min-height: 55px;
+    }
+    
+    .navigation-arrow span {
+        font-size: 22px;
+    }
+    
+    .navigation-arrow p {
+        font-size: 13px;
+    }
+    
+    .goodbye-container {
+        padding: 30px 15px;
+    }
+    
+    .goodbye-message {
+        padding: 25px 15px;
+    }
+    
+    .goodbye-message h1 {
+        font-size: 24px;
+    }
+    
+    .goodbye-message p {
+        font-size: 16px;
+    }
+    
+    .flower {
+        font-size: 25px;
+    }
+    
+    .flowers-decoration {
+        gap: 8px;
+    }
+    
+    .help-note {
+        font-size: 13px;
+        padding: 10px;
+    }
+    
+    .help-note span {
+        font-size: 16px;
     }
 }
