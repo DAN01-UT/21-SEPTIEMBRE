@@ -198,6 +198,11 @@ button:hover {
     border-radius: 15px;
     border: 2px solid #ffe082;
     box-shadow: 0 3px 10px rgba(251, 192, 45, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 #mainContent p {
