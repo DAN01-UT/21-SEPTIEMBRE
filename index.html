@@ -185,7 +185,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Intentar reproducir música de fondo inmediatamente al cargar la página
+            // Declarar música de fondo una sola vez
             const backgroundMusic = document.getElementById('backgroundMusic');
             backgroundMusic.volume = 0.3; // Volumen bajo (30%)
             
@@ -220,7 +220,6 @@
                 document.getElementById('goodbyeScreen').classList.remove('hidden');
                 
                 // Pausar música de fondo
-                const backgroundMusic = document.getElementById('backgroundMusic');
                 backgroundMusic.pause();
                 backgroundMusic.currentTime = 0;
                 
@@ -243,7 +242,6 @@
                 document.getElementById('goodbyeScreen').classList.remove('hidden');
                 
                 // Pausar música de fondo
-                const backgroundMusic = document.getElementById('backgroundMusic');
                 backgroundMusic.pause();
                 backgroundMusic.currentTime = 0;
                 
@@ -258,7 +256,6 @@
 
             // Controlar música con videos
             const videos = document.querySelectorAll('video');
-            const backgroundMusic = document.getElementById('backgroundMusic');
             
             videos.forEach(video => {
                 video.addEventListener('play', function() {
