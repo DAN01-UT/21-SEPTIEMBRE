@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <!-- Música de fondo -->
+    <audio id="backgroundMusic" loop>
+        <source src="music/background.mp3" type="audio/mpeg">
+        Tu navegador no soporta audio.
+    </audio>
     <div class="login-container">
         <div class="login-box">
             <h2><span class="flower">🌻</span> Bienvenida Corazoncito <span class="flower">🌻</span></h2>
@@ -190,6 +195,11 @@
                     document.querySelector('.login-container').classList.add('hidden');
                     document.getElementById('mainContent').classList.remove('hidden');
                     document.getElementById('message').textContent = '';
+                    
+                    // Reproducir música de fondo
+                    const backgroundMusic = document.getElementById('backgroundMusic');
+                    backgroundMusic.volume = 0.3; // Volumen bajo (30%)
+                    backgroundMusic.play().catch(e => console.log('Audio autoplay prevented:', e));
                 } else {
                     document.getElementById('message').innerHTML = '<span class="flower">🌸</span> ¡Ups! Las flores no reconocen este usuario <span class="flower">🌸</span>';
                     document.getElementById('message').style.color = '#f57f17';
@@ -199,6 +209,11 @@
             document.getElementById('logout').addEventListener('click', function() {
                 document.getElementById('mainContent').classList.add('hidden');
                 document.getElementById('goodbyeScreen').classList.remove('hidden');
+                
+                // Pausar música de fondo
+                const backgroundMusic = document.getElementById('backgroundMusic');
+                backgroundMusic.pause();
+                backgroundMusic.currentTime = 0;
                 
                 // Resetear ventanas
                 document.querySelectorAll('.window').forEach(window => {
@@ -218,6 +233,11 @@
                 document.getElementById('mainContent').classList.add('hidden');
                 document.getElementById('goodbyeScreen').classList.remove('hidden');
                 
+                // Pausar música de fondo
+                const backgroundMusic = document.getElementById('backgroundMusic');
+                backgroundMusic.pause();
+                backgroundMusic.currentTime = 0;
+                
                 // Resetear ventanas
                 document.querySelectorAll('.window').forEach(window => {
                     window.classList.add('hidden');
@@ -225,6 +245,24 @@
                 });
                 document.getElementById('window1').classList.remove('hidden');
                 document.getElementById('window1').classList.add('active');
+            });
+
+            // Controlar música con videos
+            const videos = document.querySelectorAll('video');
+            const backgroundMusic = document.getElementById('backgroundMusic');
+            
+            videos.forEach(video => {
+                video.addEventListener('play', function() {
+                    backgroundMusic.pause();
+                });
+                
+                video.addEventListener('pause', function() {
+                    backgroundMusic.play().catch(e => console.log('Audio play prevented:', e));
+                });
+                
+                video.addEventListener('ended', function() {
+                    backgroundMusic.play().catch(e => console.log('Audio play prevented:', e));
+                });
             });
 
             // Navegación con flechas
