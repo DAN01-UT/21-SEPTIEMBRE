@@ -1,0 +1,594 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Brush Script MT', 'Comic Sans MS', cursive;
+    line-height: 1.6;
+    color: #5d4e37;
+    background: linear-gradient(135deg, #fff9c4 0%, #ffe082 50%, #fff59d 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    overflow-y: auto;
+    padding: 20px 0;
+}
+
+/* Decoración de flores de fondo */
+body::before {
+    content: '🌻 🌼 🌻 🌼 🌻 🌼 🌻 🌼 🌻 🌼';
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    opacity: 0.3;
+    letter-spacing: 30px;
+    animation: float 4s ease-in-out infinite;
+}
+
+body::after {
+    content: '🌸 🌺 🌸 🌺 🌸 🌺 🌸 🌺 🌸 🌺';
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    opacity: 0.3;
+    letter-spacing: 30px;
+    animation: float 4s ease-in-out infinite 2s;
+}
+
+.login-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px 0;
+}
+
+.login-box {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(255, 193, 7, 0.3);
+    width: 100%;
+    max-width: 400px;
+    border: 3px solid #ffe082;
+    position: relative;
+    margin: 20px auto;
+}
+
+.login-box::before {
+    content: '🌻';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 40px;
+    background: #fff9c4;
+    border-radius: 50%;
+    padding: 10px;
+    border: 2px solid #ffe082;
+    animation: float 3s ease-in-out infinite;
+}
+
+.login-box h2 {
+    text-align: center;
+    color: #f57f17;
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-style: italic;
+    margin-top: 15px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #f9a825;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 18px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ffe082;
+    border-radius: 15px;
+    font-size: 16px;
+    transition: all 0.3s;
+    background: rgba(255, 249, 196, 0.5);
+    font-family: 'Brush Script MT', 'Comic Sans MS', cursive;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #fbc02d;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px rgba(251, 192, 45, 0.3);
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #fff59d 0%, #ffe082 50%, #ffca28 100%);
+    color: #5d4e37;
+    border: 2px solid #fbc02d;
+    border-radius: 25px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Brush Script MT', 'Comic Sans MS', cursive;
+    font-style: italic;
+    box-shadow: 0 4px 15px rgba(251, 192, 45, 0.4);
+}
+
+button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #ffe082 0%, #ffca28 50%, #ffb300 100%);
+    box-shadow: 0 6px 20px rgba(251, 192, 45, 0.6);
+}
+
+#message {
+    text-align: center;
+    margin-top: 15px;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 16px;
+    color: #f57f17;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#mainContent {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(255, 193, 7, 0.3);
+    text-align: center;
+    border: 3px solid #ffe082;
+    position: relative;
+    max-width: 600px;
+    width: 100%;
+    margin: 20px auto;
+}
+
+#mainContent::before {
+    content: '🌼';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 40px;
+    background: #fff9c4;
+    border-radius: 50%;
+    padding: 10px;
+    border: 2px solid #ffe082;
+    animation: float 3s ease-in-out infinite;
+}
+
+#mainContent h1 {
+    color: #f57f17;
+    margin-bottom: 20px;
+    font-size: 32px;
+    font-style: italic;
+    margin-top: 15px;
+}
+
+.window-title {
+    color: #f57f17;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-style: italic;
+    text-align: center;
+    background: linear-gradient(135deg, #fffde7 0%, #fff9c4 100%);
+    padding: 15px;
+    border-radius: 15px;
+    border: 2px solid #ffe082;
+    box-shadow: 0 3px 10px rgba(251, 192, 45, 0.2);
+}
+
+#mainContent p {
+    color: #5d4e37;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-style: italic;
+}
+
+#logout {
+    background: linear-gradient(135deg, #ffccbc 0%, #ffab91 100%);
+    color: #5d4e37;
+    border: 2px solid #ff8a65;
+    max-width: 200px;
+    margin: 0 auto;
+    font-family: 'Brush Script MT', 'Comic Sans MS', cursive;
+}
+
+#logout:hover {
+    background: linear-gradient(135deg, #ffab91 0%, #ff8a65 100%);
+    border-color: #ff7043;
+}
+
+/* Estilos de ventanas con flechas */
+.window-container {
+    min-height: 300px;
+    position: relative;
+}
+
+.window {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.window.hidden {
+    display: none;
+}
+
+.window.active {
+    display: block;
+}
+
+.window-content {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 25px;
+    border-radius: 15px;
+    border: 2px solid #ffe082;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(251, 192, 45, 0.2);
+}
+
+.window-content p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #5d4e37;
+    text-align: justify;
+    padding: 10px;
+}
+
+.navigation-arrows {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.navigation-arrow {
+    background: linear-gradient(135deg, #fffde7 0%, #fff9c4 50%, #fff59d 100%);
+    color: #f57f17;
+    border: 3px solid #ffca28;
+    border-radius: 25px;
+    padding: 18px 28px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Brush Script MT', 'Comic Sans MS', cursive;
+    font-style: italic;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(255, 193, 7, 0.4);
+    flex: 1;
+    max-width: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.navigation-arrow::before {
+    content: '🌻';
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    font-size: 16px;
+    opacity: 0.7;
+    animation: float 2s ease-in-out infinite;
+}
+
+.navigation-arrow:hover {
+    transform: scale(1.08) translateY(-2px);
+    background: linear-gradient(135deg, #fff9c4 0%, #ffe082 50%, #ffca28 100%);
+    box-shadow: 0 6px 20px rgba(255, 193, 7, 0.6);
+    border-color: #ffb300;
+}
+
+.navigation-arrow span {
+    font-size: 28px;
+    display: block;
+    margin-bottom: 8px;
+    filter: drop-shadow(0 2px 3px rgba(245, 127, 23, 0.3));
+}
+
+.navigation-arrow p {
+    font-size: 15px;
+    margin: 0;
+    color: #f57f17;
+    font-weight: bold;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.next-arrow {
+    margin: 0 auto;
+}
+
+.prev-arrow {
+    margin: 0 auto;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.video-container {
+    margin: 20px 0;
+    text-align: center;
+    width: 100%;
+}
+
+.video-container video {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    border: 3px solid #ffe082;
+    box-shadow: 0 4px 15px rgba(251, 192, 45, 0.3);
+    display: block;
+}
+
+/* Pantalla de despedida */
+.goodbye-container {
+    background: linear-gradient(135deg, #fff9c4 0%, #ffe082 50%, #fff59d 100%);
+    padding: 60px 40px;
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(255, 193, 7, 0.4);
+    text-align: center;
+    border: 4px solid #ffca28;
+    position: relative;
+    max-width: 700px;
+    margin: 40px auto;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.flowers-decoration {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 30px 0;
+}
+
+.flower {
+    font-size: 40px;
+    animation: float 3s ease-in-out infinite;
+    display: inline-block;
+}
+
+/* Flores más pequeñas en texto y botones */
+button .flower,
+h2 .flower,
+.window-title .flower,
+p .flower,
+#message .flower {
+    font-size: inherit;
+}
+
+.flower:nth-child(odd) {
+    animation-delay: 0.5s;
+}
+
+.flower:nth-child(even) {
+    animation-delay: 1s;
+}
+
+.goodbye-message {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 25px;
+    border: 3px solid #ffe082;
+    box-shadow: 0 6px 20px rgba(251, 192, 45, 0.3);
+    margin: 30px 0;
+}
+
+.goodbye-message h1 {
+    color: #f57f17;
+    font-size: 36px;
+    margin-bottom: 25px;
+    font-style: italic;
+    text-shadow: 2px 2px 4px rgba(255, 193, 7, 0.3);
+}
+
+.goodbye-message p {
+    color: #5d4e37;
+    font-size: 24px;
+    margin: 15px 0;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.logout-btn {
+    background: linear-gradient(135deg, #ffccbc 0%, #ffab91 100%);
+    color: #5d4e37;
+    border: 2px solid #ff8a65;
+    max-width: 250px;
+    margin: 20px auto;
+    display: block;
+    font-family: 'Brush Script MT', 'Comic Sans MS', cursive;
+    font-style: italic;
+}
+
+.logout-btn:hover {
+    background: linear-gradient(135deg, #ffab91 0%, #ff8a65 100%);
+    border-color: #ff7043;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-15px) rotate(10deg);
+    }
+}
+
+/* Responsive Design para móviles */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    body::before, body::after {
+        font-size: 18px;
+        letter-spacing: 20px;
+    }
+    
+    .login-box {
+        padding: 30px 20px;
+        margin: 0 10px;
+        max-width: 100%;
+    }
+    
+    .login-box::before {
+        font-size: 30px;
+        top: -15px;
+    }
+    
+    .login-box h2 {
+        font-size: 22px;
+        margin-bottom: 25px;
+    }
+    
+    .form-group {
+        margin-bottom: 15px;
+    }
+    
+    .form-group label {
+        font-size: 16px;
+        margin-bottom: 6px;
+    }
+    
+    .form-group input {
+        padding: 14px;
+        font-size: 16px; /* Evita zoom en iOS */
+    }
+    
+    button {
+        padding: 14px;
+        font-size: 16px;
+    }
+    
+    #mainContent {
+        padding: 30px 20px;
+        margin: 0 10px;
+    }
+    
+    #mainContent::before {
+        font-size: 30px;
+        top: -15px;
+    }
+    
+    #mainContent h1 {
+        font-size: 26px;
+        margin-bottom: 15px;
+    }
+    
+    #mainContent p {
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+    
+    #logout {
+        max-width: 100%;
+        padding: 14px;
+    }
+    
+    .navigation-arrows {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .navigation-arrow {
+        max-width: 100%;
+        padding: 12px 20px;
+    }
+    
+    .navigation-arrow span {
+        font-size: 20px;
+    }
+    
+    .navigation-arrow p {
+        font-size: 12px;
+    }
+    
+    .window-content p {
+        font-size: 16px;
+    }
+    
+    .video-container video {
+        border-radius: 10px;
+        border-width: 2px;
+    }
+}
+
+@media (max-width: 480px) {
+    body::before, body::after {
+        font-size: 14px;
+        letter-spacing: 15px;
+    }
+    
+    .login-box {
+        padding: 25px 15px;
+        margin: 0 5px;
+    }
+    
+    .login-box::before {
+        font-size: 25px;
+        top: -12px;
+    }
+    
+    .login-box h2 {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+    
+    .form-group input {
+        padding: 12px;
+    }
+    
+    button {
+        padding: 12px;
+        font-size: 15px;
+    }
+    
+    #mainContent {
+        padding: 25px 15px;
+        margin: 0 5px;
+    }
+    
+    #mainContent::before {
+        font-size: 25px;
+        top: -12px;
+    }
+    
+    #mainContent h1 {
+        font-size: 22px;
+    }
+    
+    .video-container video {
+        border-radius: 8px;
+        border-width: 2px;
+        max-height: 60vh;
+    }
+}
