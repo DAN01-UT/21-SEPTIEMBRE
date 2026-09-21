@@ -185,6 +185,19 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Intentar reproducir música de fondo inmediatamente al cargar la página
+            const backgroundMusic = document.getElementById('backgroundMusic');
+            backgroundMusic.volume = 0.3; // Volumen bajo (30%)
+            
+            // Intentar reproducir música inmediatamente
+            backgroundMusic.play().catch(e => {
+                console.log('Autoplay bloqueado por el navegador:', e);
+                // Si el navegador bloquea el autoplay, intentaremos después de interacción
+                document.body.addEventListener('click', function() {
+                    backgroundMusic.play().catch(err => console.log('Error al reproducir:', err));
+                }, { once: true });
+            });
+            
             document.getElementById('loginForm').addEventListener('submit', function(e) {
                 e.preventDefault();
                 const username = document.getElementById('username').value;
@@ -195,11 +208,6 @@
                     document.querySelector('.login-container').classList.add('hidden');
                     document.getElementById('mainContent').classList.remove('hidden');
                     document.getElementById('message').textContent = '';
-                    
-                    // Reproducir música de fondo
-                    const backgroundMusic = document.getElementById('backgroundMusic');
-                    backgroundMusic.volume = 0.3; // Volumen bajo (30%)
-                    backgroundMusic.play().catch(e => console.log('Audio autoplay prevented:', e));
                 } else {
                     document.getElementById('message').innerHTML = '<span class="flower">🌸</span> ¡Ups! Las flores no reconocen este usuario <span class="flower">🌸</span>';
                     document.getElementById('message').style.color = '#f57f17';
